@@ -3,7 +3,7 @@
     "name": "timestamp-utils",
     "title": "Timestamp utils",
     "description": "Utils to process timestamp",
-    "icon": "command-icon.png",
+    "icon": "timestamp.png",
     "author": "tenfyzhong",
     "owner": "tenfy",
     "categories": [

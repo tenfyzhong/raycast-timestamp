@@ -49,6 +49,10 @@ export default function Command() {
         calculate(timestamp, timezone);
     }
 
+    function handleCopy() {
+        popToRoot();
+    }
+
     function timestampValid(text: string) {
         const exp : RegExp = /^\s*\d*\s*$/;
         const res = text.match(exp);
@@ -59,7 +63,7 @@ export default function Command() {
         <Form
         actions={
             <ActionPanel>
-                <Action.CopyToClipboard title='Copy to Clipboard' content={text} onCopy={popToRoot} />
+                <Action.CopyToClipboard title='Copy to Clipboard' content={text} onCopy={handleCopy} />
             </ActionPanel>
         }
         >
@@ -70,7 +74,7 @@ export default function Command() {
             error={timestampError}
             onChange={handleTimestampChange}
             onBlur={(event) => {
-                if (!timestampValid(event.target?.value)) {
+                if (!timestampValid(event.target.value)) {
                     setTimestampError(`${event.target.value} must be a number`);
                 } else {
                     dropTimestampErrorIfNeeded();

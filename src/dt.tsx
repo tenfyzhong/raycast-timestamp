@@ -57,6 +57,10 @@ export default function Command() {
         calculate(datetime, timezone);
     }
 
+    function handleCopy() {
+        popToRoot();
+    }
+
     function datetimeValid(datetime: string) {
         const s = parseDatetime(datetime);
         return s !== null;
@@ -82,7 +86,7 @@ export default function Command() {
         <Form
         actions={
             <ActionPanel>
-                <Action.CopyToClipboard title='Copy to Clipboard' content={timestamp} onCopy={popToRoot} />
+                <Action.CopyToClipboard title='Copy to Clipboard' content={timestamp} onCopy={handleCopy} />
             </ActionPanel>
         }
         >
@@ -93,7 +97,7 @@ export default function Command() {
             error={datetimeError}
             onChange={handleDatetimeChange}
             onBlur={(event) => {
-                if (!datetimeValid(event.target?.value)) {
+                if (!datetimeValid(event.target.value)) {
                     setDatetimeError(`${event.target.value} is illegal`);
                 } else {
                     dropDatetimeErrorIfNeeded();

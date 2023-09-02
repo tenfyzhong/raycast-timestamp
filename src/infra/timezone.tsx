@@ -51,7 +51,7 @@ const timezones = [
 
 export const cacheKey = "timezone";
 
-export function FormItemTimezone(props) {
+export function FormItemTimezone(props: {id: string; title: string; defaultValue: string; onChange: (timezone: string) => void;}) {
     function handleTimezoneChange(timezone: string) {
         if (props.onChange) {
             props.onChange(timezone);

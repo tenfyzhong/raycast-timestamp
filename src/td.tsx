@@ -74,7 +74,7 @@ export default function Command() {
             error={timestampError}
             onChange={handleTimestampChange}
             onBlur={(event) => {
-                if (!timestampValid(event.target.value)) {
+                if (!timestampValid(event.target?.value || "")) {
                     setTimestampError(`${event.target.value} must be a number`);
                 } else {
                     dropTimestampErrorIfNeeded();

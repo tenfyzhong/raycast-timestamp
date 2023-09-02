@@ -97,7 +97,7 @@ export default function Command() {
             error={datetimeError}
             onChange={handleDatetimeChange}
             onBlur={(event) => {
-                if (!datetimeValid(event.target.value)) {
+                if (!datetimeValid(event.target?.value || "")) {
                     setDatetimeError(`${event.target.value} is illegal`);
                 } else {
                     dropDatetimeErrorIfNeeded();
